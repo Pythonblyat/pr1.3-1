@@ -4,7 +4,7 @@ using System.Text;
 
 // Завдання 1.1. Клас BankAccount: поля, конструктори, методи
 
-public class BankAccount
+public class Program
 {
     // ----- Поля (приватні — інкапсуляція) -----
     private string _accountNumber;
@@ -18,7 +18,7 @@ public class BankAccount
     // ----- Конструктори -----
 
     // Конструктор за замовчуванням: значення за замовчуванням
-    public BankAccount()
+    public Program()
     {
         _accountNumber = "0000";
         _ownerName = "Невідомо";
@@ -27,7 +27,7 @@ public class BankAccount
     }
 
     // Параметризований конструктор
-    public BankAccount(string accountNumber, string ownerName, decimal initialBalance)
+    public Program(string accountNumber, string ownerName, decimal initialBalance)
     {
         _accountNumber = accountNumber;
         _ownerName = ownerName;
@@ -37,7 +37,7 @@ public class BankAccount
     }
 
     // Конструктор копіювання: створює НЕЗАЛЕЖНУ копію рахунку
-    public BankAccount(BankAccount other)
+    public Program(Program other)
     {
         _accountNumber = other._accountNumber;
         _ownerName = other._ownerName;
@@ -104,16 +104,16 @@ class Program
         CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
 
         Console.WriteLine("=== Створення об'єктів ===");
-        BankAccount acc1 = new BankAccount();                 // за замовчуванням
-        BankAccount acc2 = new BankAccount("1234", "Іван Петренко", 1000m);
-        BankAccount acc3 = new BankAccount("5678", "Марія Коваленко", 2500.50m);
-        BankAccount acc4 = new BankAccount(acc2);             // копіювання
+        Program acc1 = new Program();                 // за замовчуванням
+        Program acc2 = new Program("1234", "Іван Петренко", 1000m);
+        Program acc3 = new Program("5678", "Марія Коваленко", 2500.50m);
+        Program acc4 = new Program(acc2);             // копіювання
 
         Console.WriteLine("1) За замовчуванням: " + acc1);
         Console.WriteLine("2) Параметризований: " + acc2);
         Console.WriteLine("3) Параметризований: " + acc3);
         Console.WriteLine("4) Копіювання:       " + acc4);
-        Console.WriteLine($"\nВсього створено рахунків: {BankAccount.GetTotalAccounts()}");
+        Console.WriteLine($"\nВсього створено рахунків: {Program.GetTotalAccounts()}");
 
         Console.WriteLine("\n=== Deposit ===");
         acc2.Deposit(500m);
